@@ -3,15 +3,19 @@
 @section('title','記事一覧')
 {{-- app.blade.phpの@yield('content')に以下のレイアウトを代入 --}}
 @section('content')
-<table border=1>
+<table border=3>
 <tr>
-<th>名前</th>
-<th>email</th>
+<th>title</th>
+<th>content</th>
+<th>created_at</th>
 </tr>
-@foreach($users as $user)
+@foreach($posts as $post)
 <tr>
-<td>{{ $user->name }}</td>
-<td>{{ $user->email }}</td>
+
+  <td><li>{{ $post->title }}</li></td>
+  <td>{{ $post->content }}</td>
+  <td>{{ $post->created_at }}</td>
+
 </tr>
 @endforeach
 </table>

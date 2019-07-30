@@ -18,63 +18,10 @@ class PostsController extends Controller
     public function index(Request $request)
     {
         echo 'test';
-        $post = new Post();
-        $users = User::all();
-        $user1 = User::first();
-        $user2 = User::find(2);
-        $user3 = User::find(3);
+        $posts = Post::all();
 
-
-
-        dump($users);
-        dump($user1);
-        dump($user2);
-        dump($user3);
-        die;
-
-        // if($request->has('keyword')) {
-        //     //入力の取得
-        //     $keyword = $request->input('keyword');
-        //     //全角スペースを半角スペースに置き換え
-        //     $keyword = str_replace("　"," ",$keyword);
-        //     //文字列分割
-        //     $searchwords = explode(" ",$keyword);
-
-        //     //select posts.id, users.name, title, content, posts.created_at from posts
-        //     //left join users on posts.users_id = users.id order by posts.created_at desc;
-        //     $posts = $post::with(['comments'])->latest()
-        //     ->select('posts.id', 'users.name', 'title', 'content', 'posts.created_at')
-        //     ->leftJoin('users', 'posts.users_id', '=', 'users.id')
-        //     ->where(function($post) use($searchwords) {
-        //                 foreach($searchwords as $searchword) {
-        //                     $post->where('title','like','%'.$searchword.'%')
-        //                     ->orWhere('content','like','%'.$searchword.'%');
-        //     }})->paginate(20);
-        //     } else {
-        //                 $posts = Post::with(['comments'])->latest()
-        //     ->select('posts.id', 'users.name', 'title', 'content', 'posts.created_at')
-        //     ->leftJoin('users', 'posts.users_id', '=', 'users.id')
-        //     ->paginate(20);
-        // }
-
-        // $select_from = $request->input('from_year') .'-'.$request->input('from_month').'-'.$request->input('from_day');
-        // $select_to = $request->input('to_year') .'-'.$request->input('to_month').'-'.$request->input('to_day');
-
-        // if(strptime($select_from,'%Y-%m-%d') && strptime($select_to,'%Y-%m-%d')) {
-        //     // From&To
-        //     $posts = $post::with(['comments'])->latest()->whereDate('created_at','>=',$select_from)->whereDate('created_at','<=',$select_to)->paginate(20);;
-        // } else if(strptime($select_from,'%Y-%m-%d') && !strptime($select_to,'%Y-%m-%d')) {
-        //     // From
-        //     $posts = $post::with(['comments'])->latest()->whereDate('created_at','>=',$select_from)->paginate(20);;
-        // } else if(!strptime($select_from,'%Y-%m-%d') && strptime($select_to,'%Y-%m-%d')) {
-        //     // To
-        //     $posts = $post::with(['comments'])->latest()->whereDate('created_at','<=',$select_to)->paginate(20);;
-        // }
-
-
-        return view('posts.index',[
-            // 'posts' => $posts
-            'users' => $users
+        return view('Posts.index',[
+            'posts' => $posts
         ]);
     }
 
