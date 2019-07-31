@@ -7,7 +7,6 @@ use App\Comment;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\ArticleRequest;
-
 class PostsController extends Controller
 {
     /**
@@ -24,7 +23,6 @@ class PostsController extends Controller
             'posts' => $posts
         ]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -32,9 +30,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        // postモデルのインスタンス生成
         $post = new Post();
-        // create.blade呼び出し、postをviewに渡す
         return view('posts.create',compact('post'));
     }
 
@@ -56,7 +52,6 @@ class PostsController extends Controller
         // DBへの保存　insertクエリ？
         $post->save();
         $request->session()->flash('message','記事の登録が完了しました。');
-        // 作成した記事のIDをshow.bladeで表示
         return redirect()->route('posts.show',[$post->id]);
     }
 
@@ -96,9 +91,8 @@ class PostsController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(ArticleRequest $request, Post $post)
+    public function update(Request $request, Post $post)
     {
-        // 全件取得
         $post->update($request->all());
         $request->session()->flash('message','記事の編集が完了しました。');
    	    return redirect()->route('posts.show',[$post->id]);
@@ -115,7 +109,6 @@ class PostsController extends Controller
         \DB::transaction(function () use ($post) {
             //select * from comment where post_id = "post->id";
             $comments = Comment::where('post_id', $post->id)->get();
-            //取ってきた各コメントを削除
             foreach($comments as $comment) {
                 $comment->delete();
             }
