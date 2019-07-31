@@ -13,7 +13,7 @@ class PostsController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     **/
+     */
     public function index(Request $request)
     {
         $posts = Post::all();
@@ -39,14 +39,11 @@ class PostsController extends Controller
      * @param  \App\Http\Requests\ArticleRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ArticleRequest $request)
+    public function store(Request $request)
     {
         $post = new Post();
-        // 入力されたフィールドの値を取得
         $post->title = $request->title;
-        // 入力されたフィールドの値を取得
         $post->content = $request->content;
-        // ユーザーIDの取得
         $post->users_id = $request->user()->id;
         $post->save();
         $request->session()->flash('message','記事の登録が完了しました。');
@@ -92,7 +89,7 @@ class PostsController extends Controller
     public function update(Request $request, Post $post)
     {
         $post->update($request->all());
-        $request->session()->flash('message','記事の編集が完了しました。');
+        // $request->session()->flash('message','記事の編集が完了しました。');
    	    return redirect()->route('posts.show',[$post->id]);
     }
 

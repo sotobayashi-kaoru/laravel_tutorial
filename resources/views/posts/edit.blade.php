@@ -15,5 +15,4 @@
 {{ Form::submit('更新',['class'=>'btn btn-primary btn-sm']) }}
 {{ Form::close() }}
 {{ link_to_route('posts.index','記事一覧へ戻る') }}
-
 @endsection

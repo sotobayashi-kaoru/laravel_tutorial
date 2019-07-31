@@ -4,7 +4,7 @@
     </head>
     <body>
     <div class="fotter">
-    　　　　　　@yield('footer')
+    　　@yield('footer')
 　　　</footer>
     </div>
 </html>
