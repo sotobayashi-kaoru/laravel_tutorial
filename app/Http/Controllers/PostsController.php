@@ -13,10 +13,9 @@ class PostsController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     **/
     public function index(Request $request)
     {
-        echo 'test';
         $posts = Post::all();
 
         return view('Posts.index',[
@@ -49,7 +48,6 @@ class PostsController extends Controller
         $post->content = $request->content;
         // ユーザーIDの取得
         $post->users_id = $request->user()->id;
-        // DBへの保存　insertクエリ？
         $post->save();
         $request->session()->flash('message','記事の登録が完了しました。');
         return redirect()->route('posts.show',[$post->id]);
