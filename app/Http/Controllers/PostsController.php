@@ -17,7 +17,6 @@ class PostsController extends Controller
     public function index(Request $request)
     {
         $posts = Post::all();
-
         return view('Posts.index',[
             'posts' => $posts
         ]);
@@ -41,7 +40,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $post = new Post();
+        $post = Post::create($request->all());
         $post->title = $request->title;
         $post->content = $request->content;
         $post->users_id = $request->user()->id;

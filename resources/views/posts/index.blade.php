@@ -10,7 +10,7 @@ return false;
 }
 </script>
 @endsection
-<table border=3>
+<table border=1>
 <tr>
 <th>タイトル</th>
 <th>本文</th>

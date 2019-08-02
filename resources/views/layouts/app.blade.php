@@ -3,8 +3,7 @@
          <title>Blog - @yield('title')</title>
     </head>
     <body>
-    <div class="fotter">
+    <footer class="fotter">
     　　@yield('footer')
 　　　</footer>
-    </div>
 </html>
