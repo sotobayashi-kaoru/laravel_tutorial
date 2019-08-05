@@ -6,6 +6,7 @@ use App\Post;
 use App\Comment;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers;
 use App\Http\Requests\ArticleRequest;
 class PostsController extends Controller
 {
@@ -57,13 +58,11 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        $comment = new Comment();
-        //select * from comment where post_id = "post->id";
-        $comments = $comment->where('post_id', $post->id)->get();
-
+    //     $comment = new Comment();
+    //     $comments = $comment->where('post_id', $post->id)->get();
         return view('posts.show', [
             'post' => $post,
-            'comments' => $comments,
+            // 'comments' => $comments,
         ]);
     }
 
