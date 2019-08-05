@@ -5,12 +5,12 @@
 {{ Form::open(['route'=>'posts.store']) }}
 {{ csrf_field() }}
 <p>
-タイトル：<br>
-{{Form::text('title',$post->title)}}
+    タイトル：<br>
+    {{ Form::text('title',$post->title) }}
 </p>
 <p>
-本文：<br>
-{{Form::texrarea('content',$post->content)}}
+    本文：<br>
+    {{ Form::textarea('content',$post->content) }}
 </p>
 {{ Form::submit('作成',['class'=>'btn btn-primary btn-sm']) }}
 {{ Form::close() }}

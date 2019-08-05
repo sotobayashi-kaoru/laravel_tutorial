@@ -5,14 +5,15 @@
 {{ Form::open(['route'=>['posts.update',$post->id], 'method'=>'put']) }}
 {{ csrf_field() }}
 <p>
-タイトル：<br>
-{{ Form::text('title',$post->title) }}
+    タイトル：<br>
+    {{ Form::text('title',$post->title) }}
 </p>
 <p>
-本文：<br>
-{{ Form::textarea('content',$post->content) }}
+    本文：<br>
+    {{ Form::textarea('content',$post->content) }}
 </p>
 {{ Form::submit('更新',['class'=>'btn btn-primary btn-sm']) }}
 {{ Form::close() }}
 {{ link_to_route('posts.index','記事一覧へ戻る') }}
+
 @endsection
