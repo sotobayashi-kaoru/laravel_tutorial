@@ -12,4 +12,8 @@ class PostsTableSeeder extends Seeder
      * @return void
      */
     public function run()
+   {
+    DB::table('posts')->truncate();
+    factory(App\Post::class, 3)->create();
+   }
 }
