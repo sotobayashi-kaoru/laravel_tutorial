@@ -46,7 +46,7 @@ class PostsController extends Controller
         $post->content = $request->content;
         $post->users_id = $request->user()->id;
         $post->save();
-        $request->session()->flash('message','記事の登録が完了しました。');
+        // $request->session()->flash('message','記事の登録が完了しました。');
         return redirect()->route('posts.show',[$post->id]);
     }
 
@@ -62,7 +62,7 @@ class PostsController extends Controller
     //     $comments = $comment->where('post_id', $post->id)->get();
         return view('posts.show', [
             'post' => $post,
-            // 'comments' => $comments,
+    //         // 'comments' => $comments,
         ]);
     }
 
