@@ -44,7 +44,7 @@ class PostsController extends Controller
         $post = Post::create($request->all());
         $post->title = $request->title;
         $post->content = $request->content;
-        $post->users_id = $request->user()->id;
+        // $post->users_id = $request->user()->id;
         $post->save();
         // $request->session()->flash('message','記事の登録が完了しました。');
         return redirect()->route('posts.show',[$post->id]);
@@ -99,15 +99,14 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
-        \DB::transaction(function () use ($post) {
+        // \DB::transaction(function () use ($post) {
             //select * from comment where post_id = "post->id";
-            $comments = Comment::where('post_id', $post->id)->get();
-            foreach($comments as $comment) {
-                $comment->delete();
-            }
+            // $comments = Comment::where('post_id', $post->id)->get();
+            // foreach($comments as $comment) {
+                // $comment->delete();
+            // }
             $post->delete();
-        });
-        return redirect()->route('posts.index')->with('message','記事の削除が完了しました。');
+            return redirect()->route('posts.index');
     }
 }
 ?>
