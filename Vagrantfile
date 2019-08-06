@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machiconfig.vm.synced_folder "~/projecne
   # using a specific IP.
-  config.vm.network "private_network", ip: "192.168.33.10"
+config.vm.network:public_network, ip: "192.168.0.100", bridge: "en1: Wi-Fi (AirPort)"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
