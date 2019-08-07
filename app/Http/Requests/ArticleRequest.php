@@ -22,20 +22,20 @@ class ArticleRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {
+     {
         return [
-               'title' => 'required|unique:posts|min:3|max:30',
-               'content' => 'required'
-           ];
-    }
-    public function messages()
-    {
-        return[
-            'title.required' => 'タイトルを入力して下さい',
-            'title.unique' => 'このタイトルはすでに使用されています',
-            'title.min' => 'タイトルは3文字以上にして下さい',
-            'title.max' => 'タイトルは30文字以内にして下さい',
-            'content.required' => '本文を入力して下さい',
+            'title' => 'required|unique:posts|min:3|max:30',
+            'content' => 'required'
         ];
-    }
+     }
+     public function messages()
+     {
+        return[
+            'title.required' => 'タイトルを入力してください',
+            'title.unique' => 'このタイトルは既に使用されています',
+            'title.min' => 'タイトルは3文字以上にしてください',
+            'title.max' => 'タイトルは30文字以内にしてください',
+            'content.required' => '本文を入力してください'
+        ];
+     }
 }

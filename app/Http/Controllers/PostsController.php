@@ -8,6 +8,8 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers;
 use App\Http\Requests\ArticleRequest;
+use App\Http\Requests\validationPost;
+
 class PostsController extends Controller
 {
     /**
@@ -39,7 +41,7 @@ class PostsController extends Controller
      * @param  \App\Http\Requests\ArticleRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(validationPost $request)
     {
         $post = Post::create($request->all());
         $post->title = $request->title;
@@ -49,6 +51,7 @@ class PostsController extends Controller
         // $request->session()->flash('message','記事の登録が完了しました。');
         return redirect()->route('posts.show',[$post->id]);
     }
+
 
     /**
      * Display the specified resource.
@@ -84,9 +87,9 @@ class PostsController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(ValidationPost $request, Post $post)
     {
-        $post->update($request->all());
+        $post->update($Articlerequest->all());
         // $request->session()->flash('message','記事の編集が完了しました。');
    	    return redirect()->route('posts.show',[$post->id]);
     }
