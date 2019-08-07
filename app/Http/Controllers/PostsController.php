@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers;
 use App\Http\Requests\ArticleRequest;
 use App\Http\Requests\validationPost;
-
 class PostsController extends Controller
 {
     /**
@@ -88,6 +87,8 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(ValidationPost $request, Post $post)
+
+
     {
         $post->update($Articlerequest->all());
         // $request->session()->flash('message','記事の編集が完了しました。');
