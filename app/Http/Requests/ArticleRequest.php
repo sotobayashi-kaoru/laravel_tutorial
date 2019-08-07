@@ -13,7 +13,7 @@ class ArticleRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,14 +28,14 @@ class ArticleRequest extends FormRequest
             'content' => 'required'
         ];
      }
-     public function messages()
-     {
-        return[
-            'title.required' => 'タイトルを入力してください',
-            'title.unique' => 'このタイトルは既に使用されています',
-            'title.min' => 'タイトルは3文字以上にしてください',
-            'title.max' => 'タイトルは30文字以内にしてください',
-            'content.required' => '本文を入力してください'
-        ];
-     }
-}
+//      public function messages()
+//      {
+//         return[
+//             'title.required' => 'タイトルを入力してください',
+//             'title.unique' => 'このタイトルは既に使用されています',
+//             'title.min' => 'タイトルは3文字以上にしてください',
+//             'title.max' => 'タイトルは30文字以内にしてください',
+//             'content.required' => '本文を入力してください'
+//         ];
+//      }
+// }
