@@ -17,7 +17,6 @@
 {{ Form::close() }}
 {{ link_to_route('posts.index','記事一覧へ戻る') }}
 @endsection
-
 @if($errors->has('title'))
 <span class="text-danger">{{ $errors->first('title') }}</span>
 @endif
