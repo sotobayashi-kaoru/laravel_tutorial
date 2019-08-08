@@ -18,13 +18,8 @@ class PostsController extends Controller
      */
     public function index(Request $request)
     {
-        // $posts = Post::all();
-        // return view('Posts.index',[
-        //     'posts' => $posts
-        // ]);
+
         $keywords = $request->get('keywords');
-
-
         $keywords = preg_split("/[\s+]+/", str_replace('　', ' ', $keywords));
         $posts = Post::where(function ($query) use($keywords) {
             foreach($keywords as $word){
