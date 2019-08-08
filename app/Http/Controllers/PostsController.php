@@ -18,10 +18,20 @@ class PostsController extends Controller
      */
     public function index(Request $request)
     {
-        $posts = Post::all();
-        return view('Posts.index',[
-            'posts' => $posts
-        ]);
+        // $posts = Post::all();
+        // return view('Posts.index',[
+        //     'posts' => $posts
+        // ]);
+        $keywords = $request->get('keywords');
+
+
+        $keywords = preg_split("/[\s+]+/", str_replace('　', ' ', $keywords));
+        $posts = Post::where(function ($query) use($keywords) {
+            foreach($keywords as $word){
+                $query->where('content', 'like', '%'.$word.'%');
+            }
+        })->get();
+        return view('posts.index', compact('posts'));
     }
     /**
      * Show the form for creating a new resource.
@@ -47,7 +57,7 @@ class PostsController extends Controller
         $post->content = $request->content;
         // $post->users_id = $request->user()->id;
         $post->save();
-        // $request->session()->flash('message','記事の登録が完了しました。');
+        $request->session()->flash('message','記事の登録が完了しました。');
         return redirect()->route('posts.show',[$post->id]);
     }
 
@@ -90,8 +100,8 @@ class PostsController extends Controller
 
 
     {
-        $post->update($Articlerequest->all());
-        // $request->session()->flash('message','記事の編集が完了しました。');
+        $post->update($request->all());
+        $request->session()->flash('message','記事の編集が完了しました。');
    	    return redirect()->route('posts.show',[$post->id]);
     }
 
@@ -110,7 +120,7 @@ class PostsController extends Controller
                 // $comment->delete();
             // }
             $post->delete();
-            return redirect()->route('posts.index');
+            return redirect()->route('posts.index')->with('message','記事の削除が完了しました。');
     }
 }
 ?>

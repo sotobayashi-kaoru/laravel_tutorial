@@ -33,9 +33,20 @@ function delPostConfirm() {
 </tr>
 @endforeach
 </table>
+
+{{ Form::open(['route'=>'posts.index','method'=>'get']) }}
+{{ csrf_field() }}
+{{ Form::text('keywords','',['type'=>'search','placeholder'=>'タイトル・本文から検索','style'=>'width: 200px']) }}
+{{ Form::submit('Search',['class'=>'btn btn-primary btn-sm']) }}
+{{ Form::close() }}
+
+
 @section('footer')
 {{ link_to_route('posts.create','[記事作成]') }}
 @endsection
-@section('footer')
-{{ link_to_route('posts.create','[新規作成]') }}
-@endsection
+
+@if(Session::has('message'))
+<div class="alert alert-success">
+{{ session('message') }}
+</div>
+@endif
