@@ -36,3 +36,6 @@ function delPostConfirm() {
 @section('footer')
 {{ link_to_route('posts.create','[記事作成]') }}
 @endsection
+@section('footer')
+{{ link_to_route('posts.create','[新規作成]') }}
+@endsection

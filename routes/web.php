@@ -14,8 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('posts','PostsController');
-
+Route::resource('/posts', 'PostsController', ['only' => ['index', 'show']]);
+Route::group(['middleware' => 'auth'],function(){
+    Route::resource('/posts','PostsController',['only' => ['store','create','update','destroy','delete','edit']]);
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
