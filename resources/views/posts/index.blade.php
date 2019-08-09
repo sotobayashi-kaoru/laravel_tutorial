@@ -7,7 +7,7 @@ function delPostConfirm() {
     if(confirm('削除しますか？')) {
     } else {
         return false;
-    }
+}
 }
 </script>
 @endsection
