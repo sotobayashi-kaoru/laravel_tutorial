@@ -45,6 +45,15 @@ function delPostConfirm() {
 {{ link_to_route('posts.create','[記事作成]') }}
 @endsection
 
+{{ Form::open(['route'=>'posts.index','method'=>'get']) }}
+  <div class="form-inline">
+  <span>日付絞り込み</span>
+  {{ Form::checkbox('dateCheck', 'true', false, ['id'=> 'date_check']) }}
+  {{ Form::date('fromDate', $fromDate, ['class' => 'form-control']) }}
+  {{ Form::date('toDate', $toDate, ['class' => 'form-control']) }}
+  </div>
+{{Form::close()}}
+
 @if(Session::has('message'))
 <div class="alert alert-success">
 {{ session('message') }}

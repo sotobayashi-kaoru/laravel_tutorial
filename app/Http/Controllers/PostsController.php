@@ -20,13 +20,26 @@ class PostsController extends Controller
     {
 
         $keywords = $request->get('keywords');
-        $keywords = preg_split("/[\s+]+/", str_replace('　', ' ', $keywords));
-        $posts = Post::where(function ($query) use($keywords) {
+        $fromDate = $request->get('fromDate');
+        $toDate = $request->get('toDate');
+        $dateCheck = $request->get('dateCheck');
+        $keywords = preg_split("/[\s+]/", str_replace('　', ' ', $keywords));
+        $posts = Post::where(function ($query) use($keywords, $fromDate, $toDate, $dateCheck) {
             foreach($keywords as $word){
-                $query->where('content', 'like', '%'.$word.'%');
+                if($word){
+                    $query->where('content', 'like', "%{$word}%");
+                }
             }
-        })->get();
-        return view('posts.index', compact('posts'));
+            if($dateCheck){
+                if($fromDate){
+                    $query->whereDate('created_at','>=' ,$fromDate);
+                }
+                if($toDate){
+                    $query->whereDate('created_at', '<=', $toDate);
+                }
+            }
+        })->latest('created_at')->get();
+            return view('posts.index', compact('posts','fromDate', 'toDate'));
     }
     /**
      * Show the form for creating a new resource.
