@@ -6,7 +6,16 @@
 {{ link_to_route('posts.index','記事一覧へ戻る') }}
 @endsection
 
-{{ Form::open( ['url' => 'comment'] ) }}
+<!-- @foreach ($comments as $comment )
+            <div class="row">
+                <p>{{$loop->iteration}}</p>
+                <p>comment:{{ $comment->comment }}</p>
+                <p>name:{{ $comment->name }}</p>
+                <p>date:{{ $comment->created_at->format('Y/m/d H:i') }}</p>
+            </div>
+@endforeach -->
+
+<!-- {{ Form::open( ['url' => 'comment'] ) }}
             <div class="form-group">
                 {{Form::label('name')}}
                 {{ Form::text('name', '' ,['class' => 'form-control', 'required']) }}
@@ -19,16 +28,7 @@
                 {{ Form::submit('送信' ,['class' => 'btn btn-primary'])}}
             </div>
             <input type="hidden" name="post_id" value="{{$post->id}}">
-{{ Form::close() }}
-
-@foreach ($comments as $comment )
-            <div class="row">
-                <p>{{$loop->iteration}}</p>
-                <p>comment:{{ $comment->comment }}</p>
-                <p>name:{{ $comment->name }}</p>
-                <p>date:{{ $comment->created_at->format('Y/m/d H:i') }}</p>
-            </div>
-@endforeach
+{{ Form::close() }} -->
 
 @if(Session::has('message'))
 <div class="alert alert-success">

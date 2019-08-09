@@ -7,7 +7,6 @@ use App\Comment;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers;
-use App\Http\Requests\ArticleRequest;
 use App\Http\Requests\validationPost;
 class PostsController extends Controller
 {
