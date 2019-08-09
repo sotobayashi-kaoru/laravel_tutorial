@@ -1,7 +1,10 @@
 @extends('layouts.app')
+
 @section('title','記事編集')
+
 @section('content')
 <h1>記事編集</h1>
+
 {{ Form::open(['route'=>['posts.update',$post->id], 'method'=>'put']) }}
 {{ csrf_field() }}
 <p>

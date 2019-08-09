@@ -14,10 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('/posts', 'PostsController', ['only' => ['index', 'show']]);
-Route::group(['middleware' => 'auth'],function(){
-    Route::resource('/posts','PostsController',['only' => ['store','create','update','destroy','delete','edit']]);
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::resource('posts','PostsController', ['only' => ['create','store','edit','update','destroy']]);
 });
+Route::resource('posts','PostsController',['only' => ['index','show']]);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
