@@ -115,7 +115,15 @@ class PostsController extends Controller
                 // $comment->delete();
             // }
             $post->delete();
-            return redirect()->route('posts.index')->with('message','記事の削除が完了しました。');
+            Comment::where('post_id',$post->id)->delete();
+            return redirect()->route('posts')->with('message','記事の削除が完了しました。');
+    }
+
+    public function comment(Request $request)
+    {
+        Comment::create($request->all());
+        $request->session()->flash('message', 'コメントしました。');
+        return redirect()->route('posts.show', [$request->input('post_id')]);
     }
 }
 ?>
