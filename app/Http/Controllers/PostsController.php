@@ -118,15 +118,20 @@ class PostsController extends Controller
     public function destroy(Post $post)
     {
             $post->delete();
-            Comment::where('post_id',$post->id)->delete();
+            $comment = new Comment();
+            $comment::where('post_id',$post->id)->delete();
+
             return redirect()->route('posts.index')->with('message','記事の削除が完了しました。');
     }
 
     public function comment(Request $request)
     {
-        Comment::create($request->all());
+        $comment = comment::create($request->all());
+        $comment->save();
+
         $request->session()->flash('message', 'コメントしました。');
-        return redirect()->route('posts.show', [$request->input('post_id')]);
+
+        return redirect()->route('posts.show', [$comment->post_id]);
     }
 }
 ?>
