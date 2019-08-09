@@ -59,3 +59,7 @@ function delPostConfirm() {
 {{ session('message') }}
 </div>
 @endif
+
+<div class="paginate">
+{{ $posts->links() }}
+</div>
