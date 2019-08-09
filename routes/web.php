@@ -22,4 +22,4 @@ Route::resource('posts','PostsController',['only' => ['index','show']]);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-// Route::Post('/comment', 'PostsController@comment');
+Route::Post('/comment', 'PostsController@comment');

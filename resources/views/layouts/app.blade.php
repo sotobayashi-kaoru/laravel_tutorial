@@ -16,7 +16,6 @@
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
-              @yield('content')
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -68,10 +67,11 @@
                         @endguest
                     </ul>
                 </div>
+
             </div>
         </nav>
-
         @yield('content')
+
     </div>
 
     <!-- Scripts -->

@@ -1,15 +1,7 @@
 @extends('layouts.app')
 @section('title','記事一覧')
-@section('script')
-<script>
-function delPostConfirm() {
-    if(confirm('削除しますか？')) {
-    } else {
-        return false;
-　　 }
-}
-</script>
-@endsection
+
+@section('content')
 <table border=1>
 <tr>
     <th>タイトル</th>
@@ -36,22 +28,21 @@ function delPostConfirm() {
 {{ Form::open(['route'=>'posts.index','method'=>'get']) }}
 {{ csrf_field() }}
 {{ Form::text('keywords','',['type'=>'search','placeholder'=>'タイトル・本文から検索','style'=>'width: 200px']) }}
-{{ Form::submit('Search',['class'=>'btn btn-primary btn-sm']) }}
-{{ Form::close() }}
 
-
-@section('footer')
-{{ link_to_route('posts.create','[記事作成]') }}
-@endsection
-
-{{ Form::open(['route'=>'posts.index','method'=>'get']) }}
-  <div class="form-inline">
+<div class="form-inline">
   <span>日付絞り込み</span>
   {{ Form::checkbox('dateCheck', 'true', false, ['id'=> 'date_check']) }}
   {{ Form::date('fromDate', $fromDate, ['class' => 'form-control']) }}
   {{ Form::date('toDate', $toDate, ['class' => 'form-control']) }}
   </div>
-{{Form::close()}}
+
+
+{{ Form::submit('Search',['class'=>'btn btn-primary btn-sm']) }}
+{{ Form::close() }}
+
+
+
+
 
 @if(Session::has('message'))
 <div class="alert alert-success">
@@ -62,3 +53,19 @@ function delPostConfirm() {
 <div class="paginate">
 {{ $posts->links() }}
 </div>
+@endsection
+
+@section('footer')
+{{ link_to_route('posts.create','[記事作成]') }}
+@endsection
+
+@section('script')
+<script>
+function delPostConfirm() {
+    if(confirm('削除しますか？')) {
+    } else {
+        return false;
+　　 }
+}
+</script>
+@endsection

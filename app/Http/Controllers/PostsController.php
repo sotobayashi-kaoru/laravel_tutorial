@@ -22,7 +22,10 @@ class PostsController extends Controller
         $fromDate = $request->get('fromDate');
         $toDate = $request->get('toDate');
         $dateCheck = $request->get('dateCheck');
+
         $keywords = preg_split("/[\s+]/", str_replace('　', ' ', $keywords));
+
+
         $posts = Post::where(function ($query) use($keywords, $fromDate, $toDate, $dateCheck) {
             foreach($keywords as $word){
                 if($word){
@@ -78,8 +81,19 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
+        // $comment = Comment::find(1);
+        // $comments = Comment::where("id", 1)->get();
+        // $comments_36 = Comment::where("post_id", 36)->get();
+        // dump($comment);
+        // dump($comments);
+        // dump($comments_36);
+
+        // die;
+        $comments = Comment::where("post_id", $post->id)->get();
+
         return view('posts.show', [
             'post' => $post,
+            'comments' => $comments,
         ]);
     }
 
