@@ -15,7 +15,10 @@
 
 {{ Form::submit('作成',['class'=>'btn btn-primary btn-sm']) }}
 {{ Form::close() }}
-{{ link_to_route('posts.index','記事一覧へ戻る') }}
+
+<div style="margin-top: 20px;"></div>
+
+{{ link_to_route('posts.index','記事一覧',[$post->id],['class'=>'btn btn-info btn-sm']) }}
 
 @endsection
 @if($errors->has('title'))

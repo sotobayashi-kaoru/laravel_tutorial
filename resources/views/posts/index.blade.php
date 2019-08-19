@@ -2,7 +2,7 @@
 @section('title','記事一覧')
 
 @section('content')
-<table border=1>
+<table border=2>
 <tr>
     <th>タイトル</th>
     <th>本文</th>
@@ -15,7 +15,7 @@
     <td><li>{{ link_to_route('posts.show',$post->title,[$post->id]) }}</li></td>
     <td>{{ $post->content }}</td>
     <td>{{ $post->created_at }}</td>
-    <td>{{ link_to_route('posts.edit','編集',[$post->id],['class'=>'btn btn-primary btn-sm']) }}</td>
+    <td>{{ link_to_route('posts.edit','編集',[$post->id],['class'=>'btn btn-info btn-sm']) }}</td>
     <td>
       {{ Form::open(['route'=>['posts.destroy',$post->id],'onSubmit'=>'return delPostConfirm();','method'=>'delete']) }}
       {{ Form::submit('削除',['class'=>'btn btn-danger btn-sm']) }}
@@ -25,9 +25,12 @@
 @endforeach
 </table>
 
+<div style="margin-top: 20px;"></div>
 {{ Form::open(['route'=>'posts.index','method'=>'get']) }}
 {{ csrf_field() }}
-{{ Form::text('keywords','',['type'=>'search','placeholder'=>'タイトル・本文から検索','style'=>'width: 200px']) }}
+{{ Form::text('keywords','',['type'=>'search','placeholder'=>'タイトル・本文から検索','style'=>'width: 450px']) }}
+
+<div style="margin-top: 20px;"></div>
 
 <div class="form-inline">
   <span>日付絞り込み</span>
@@ -36,12 +39,10 @@
   {{ Form::date('toDate', $toDate, ['class' => 'form-control']) }}
   </div>
 
+<div style="margin-top: 20px;"></div>
 
-{{ Form::submit('Search',['class'=>'btn btn-primary btn-sm']) }}
+{{ Form::submit('Search',['class'=>'btn btn-primary btn-sm pull-right']) }}
 {{ Form::close() }}
-
-
-
 
 
 @if(Session::has('message'))
@@ -56,7 +57,7 @@
 @endsection
 
 @section('footer')
-{{ link_to_route('posts.create','[記事作成]') }}
+{{ link_to_route('posts.create','記事作成',[$post->id],['class'=>'btn btn-info btn-sm']) }}
 @endsection
 
 @section('script')

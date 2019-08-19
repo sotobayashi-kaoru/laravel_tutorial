@@ -3,6 +3,7 @@
 @section('title','記事編集')
 
 @section('content')
+
 <h1>記事編集</h1>
 
 {{ Form::open(['route'=>['posts.update',$post->id],'method'=>'put']) }}
@@ -18,7 +19,9 @@
 {{ Form::submit('更新',['class'=>'btn btn-primary btn-sm']) }}
 {{ Form::close() }}
 
-{{ link_to_route('posts.index','記事一覧へ戻る') }}
+<div style="margin-top: 10px;"></div>
+
+{{ link_to_route('posts.index','記事一覧',[$post->id],['class'=>'btn btn-info btn-sm']) }}
 
 @endsection
 
