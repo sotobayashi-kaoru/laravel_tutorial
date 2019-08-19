@@ -12,7 +12,6 @@
 
 <h1>{{ $post->title }}</h1>
 <p>{{ $post->content }}</p>
-{{ link_to_route('posts.index','記事一覧へ戻る') }}
 
 @foreach ($comments as $comment )
             <div class="row">
@@ -39,5 +38,6 @@
 {{ Form::close() }}
 
 
+{{ link_to_route('posts.index','記事一覧',[$post->id],['class'=>'btn btn-info btn-sm']) }}
 
 @endsection

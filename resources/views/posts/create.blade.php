@@ -1,3 +1,5 @@
+<div class="container">
+
 @extends('layouts.app')
 @section('title','記事作成')
 @section('content')
@@ -19,6 +21,8 @@
 <div style="margin-top: 20px;"></div>
 
 {{ link_to_route('posts.index','記事一覧',[$post->id],['class'=>'btn btn-info btn-sm']) }}
+
+</div>
 
 @endsection
 @if($errors->has('title'))

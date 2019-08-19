@@ -2,11 +2,12 @@
 @section('title','記事一覧')
 
 @section('content')
+<div class="container">
 <table border=2>
 <tr>
-    <th>タイトル</th>
-    <th>本文</th>
-    <th>投稿時間</th>
+    <th class="text-center titleTxt">タイトル</th>
+    <th class="text-center titleTxt">本文</th>
+    <th class="text-center titleTxt">投稿時間</th>
     <th></th>
     <th></th>
 </tr>
@@ -24,7 +25,11 @@
 </tr>
 @endforeach
 </table>
+</div>
+</div>
 
+
+<div class="container">
 <div style="margin-top: 20px;"></div>
 {{ Form::open(['route'=>'posts.index','method'=>'get']) }}
 {{ csrf_field() }}
@@ -38,12 +43,9 @@
   {{ Form::date('fromDate', $fromDate, ['class' => 'form-control']) }}
   {{ Form::date('toDate', $toDate, ['class' => 'form-control']) }}
   </div>
-
-<div style="margin-top: 20px;"></div>
-
-{{ Form::submit('Search',['class'=>'btn btn-primary btn-sm pull-right']) }}
-{{ Form::close() }}
-
+  {{ Form::submit('Search',['class'=>'btn btn-primary btn-sm pull-right']) }}
+  {{ Form::close() }}
+</div>
 
 @if(Session::has('message'))
 <div class="alert alert-success">
@@ -51,14 +53,21 @@
 </div>
 @endif
 
-<div class="paginate">
-{{ $posts->links() }}
+<div class="container">
+  <div class="text-center">
+    <div class="paginate">
+      {{ $posts->links() }}
+    </div>
+  </div>
 </div>
 @endsection
 
 @section('footer')
+<div class="container">
 {{ link_to_route('posts.create','記事作成',[$post->id],['class'=>'btn btn-info btn-sm']) }}
+</div>
 @endsection
+
 
 @section('script')
 <script>
