@@ -8,27 +8,26 @@ td, th {
     margin: auto 0;
 }
 h1 {
-    padding: 0.25em 0.5em;/*上下 左右の余白*/
-    color: #494949;/*文字色*/
+    padding: 0.25em 0.5em;
+    color: #494949;
     background: transparent;/*背景透明に*/
-    border-left: solid 5px #7db4e6;/*左線*/
+    border-left: solid 5px #7db4e6;
   }
 
   table {
     width:100px
-    color: #696969;/*文字色*/
-    background: #ffffff;/*背景色*/
+    color: #696969;
+    background: #ffffff;
   }
 
   table th{/*thに対して*/
-    color: #c0c0c0;/*文字色*/
-    background: #ffffff;/*背景色*/
+    color: #c0c0c0;
+    background: #ffffff;
   }
 
   a {
 
     color:#c0c0c0;
-    text-decoration:underline;
 
     }
     body {background:url(https://ferret.akamaized.net/images/58b66600fafbd8666a0001d1/original.jpg?1488348671) no-repeat center center fixed; background-size:cover;}

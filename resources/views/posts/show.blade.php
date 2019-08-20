@@ -31,7 +31,7 @@
                 {{ Form::textarea('comment', '', ['class' => 'form-control', 'required']) }}
             </div>
             <div class="form-group">
-                {{ Form::submit('Send' ,['class' => 'btn btn-info'])}}
+                {{ Form::submit('Send',['class'=>'btn btn-info btn-sm']) }}
             </div>
             <input type="hidden" name="post_id" value="{{$post->id}}">
 {{ Form::close() }}
