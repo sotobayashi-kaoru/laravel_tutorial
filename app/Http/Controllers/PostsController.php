@@ -40,7 +40,7 @@ class PostsController extends Controller
                     $query->whereDate('created_at', '<=', $toDate);
                 }
             }
-        })->latest('created_at')->paginate(20);
+        })->latest('created_at')->paginate(10);
 
 
             return view('posts.index', compact('posts','fromDate', 'toDate'));
