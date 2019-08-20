@@ -78,6 +78,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
+
 <footer class="footer">
     @yield('footer')
 </footer>

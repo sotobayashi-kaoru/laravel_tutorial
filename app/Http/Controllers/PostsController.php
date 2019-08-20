@@ -43,7 +43,7 @@ class PostsController extends Controller
         })->latest('created_at')->paginate(10);
 
 
-            return view('posts.index', compact('posts','fromDate', 'toDate'));
+            return view('posts.index', compact('posts','fromDate','toDate'));
     }
     /**
      * Show the form for creating a new resource.
