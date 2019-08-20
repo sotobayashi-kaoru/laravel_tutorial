@@ -5,11 +5,13 @@
 <div class="container">
 <table border=2>
 <tr>
+    <tr bgcolor="#ffffff">
     <th class="text-center titleTxt">タイトル</th>
     <th class="text-center titleTxt">本文</th>
     <th class="text-center titleTxt">投稿時間</th>
     <th></th>
     <th></th>
+</tr>
 </tr>
 @foreach($posts as $post)
 <tr>
@@ -39,19 +41,22 @@
 
 <div class="form-inline">
   <span>日付絞り込み</span>
-  {{ Form::checkbox('dateCheck', 'true', false, ['id'=> 'date_check']) }}
-  {{ Form::date('fromDate', $fromDate, ['class' => 'form-control']) }}
-  {{ Form::date('toDate', $toDate, ['class' => 'form-control']) }}
+    {{ Form::checkbox('dateCheck', 'true', false, ['id'=> 'date_check']) }}
+    {{ Form::date('fromDate', $fromDate, ['class' => 'form-control']) }}
+    {{ Form::date('toDate', $toDate, ['class' => 'form-control']) }}
+</div>
+  <div style="margin-top: 20px;"></div>
+    {{ Form::submit('Search',['class'=>'btn btn-primary btn-sm ']) }}
+    {{ Form::close() }}
   </div>
-  {{ Form::submit('Search',['class'=>'btn btn-primary btn-sm pull-right']) }}
-  {{ Form::close() }}
-</div>
 
-@if(Session::has('message'))
-<div class="alert alert-success">
-{{ session('message') }}
-</div>
-@endif
+
+@endsection
+
+@section('footer')
+<div style="margin-top: 15px;"></div>
+<div class="container">
+{{ link_to_route('posts.create','記事作成',[$post->id],['class'=>'btn btn-info btn-sm']) }}
 
 <div class="container">
   <div class="text-center">
@@ -59,15 +64,16 @@
       {{ $posts->links() }}
     </div>
   </div>
+ </div>
 </div>
 @endsection
 
-@section('footer')
-<div class="container">
-{{ link_to_route('posts.create','記事作成',[$post->id],['class'=>'btn btn-info btn-sm']) }}
-</div>
-@endsection
 
+@if(Session::has('message'))
+<div class="alert alert-success">
+{{ session('message') }}
+</div>
+@endif
 
 @section('script')
 <script>
