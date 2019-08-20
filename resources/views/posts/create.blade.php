@@ -15,12 +15,12 @@
     {{ Form::textarea('content',$post->content) }}
 </p>
 
-{{ Form::submit('New Post',['class'=>'btn btn-primary btn-sm']) }}
+{{ Form::submit('New Post',['class'=>'btn btn-info btn-sm']) }}
 {{ Form::close() }}
 
 <div style="margin-top: 20px;"></div>
 
-{{ link_to_route('posts.index','Home',[$post->id],['class'=>'btn btn-info btn-sm']) }}
+{{ link_to_route('posts.index','Home',[$post->id],['class'=>'btn btn-default btn-sm']) }}
 
 </div>
 

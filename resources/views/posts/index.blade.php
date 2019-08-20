@@ -46,8 +46,8 @@
     {{ Form::date('toDate', $toDate, ['class' => 'form-control']) }}
 </div>
   <div style="margin-top: 20px;"></div>
-  {{ link_to_route('posts.create','New Posts',[$post->id],['class'=>'btn btn-info btn-sm']) }}
-  {{ Form::submit('Search',['class'=>'btn btn-primary btn-sm ']) }}
+  {{ link_to_route('posts.create','New Posts',[$post->id],['class'=>'btn btn-default btn-sm']) }}
+  {{ Form::submit('Search',['class'=>'btn btn-info btn-sm ']) }}
   {{ Form::close() }}
 </div>
   @endsection

@@ -1,8 +1,7 @@
+<div class="container">
+
 @extends('layouts.app')
 @section('title','記事詳細')
-
-
-
 @section('content')
 @if(Session::has('message'))
 <div class="alert alert-success">
@@ -32,12 +31,12 @@
                 {{ Form::textarea('comment', '', ['class' => 'form-control', 'required']) }}
             </div>
             <div class="form-group">
-                {{ Form::submit('Send' ,['class' => 'btn btn-primary'])}}
+                {{ Form::submit('Send' ,['class' => 'btn btn-info'])}}
             </div>
             <input type="hidden" name="post_id" value="{{$post->id}}">
 {{ Form::close() }}
 
-
-{{ link_to_route('posts.index','Home',[$post->id],['class'=>'btn btn-info btn-sm']) }}
+</div>
+{{ link_to_route('posts.index','Home',[$post->id],['class'=>'btn btn-default btn-sm']) }}
 
 @endsection
