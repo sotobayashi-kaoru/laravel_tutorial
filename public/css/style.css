@@ -24,3 +24,10 @@ h1 {
     color: #c0c0c0;/*文字色*/
     background: #ffffff;/*背景色*/
   }
+
+  a {
+
+    color:#c0c0c0;
+    text-decoration:underline;
+
+    }

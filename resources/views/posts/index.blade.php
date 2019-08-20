@@ -31,7 +31,6 @@
 </div>
 </div>
 
-
 <div class="container">
 <div style="margin-top: 20px;"></div>
 {{ Form::open(['route'=>'posts.index','method'=>'get']) }}
@@ -52,6 +51,8 @@
   {{ Form::close() }}
 </div>
   @endsection
+
+
 
 @section('footer')
 <div class="container">
