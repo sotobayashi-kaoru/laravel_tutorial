@@ -34,23 +34,24 @@
 </div>
 
 <div class="container">
-<div style="margin-top: 20px;"></div>
+<div style="margin-top: 5px;"></div>
 {{ Form::open(['route'=>'posts.index','method'=>'get']) }}
 {{ csrf_field() }}
-{{ Form::text('keywords','',['type'=>'search','placeholder'=>'Search','style'=>'width: 450px']) }}
+{{ Form::text('keywords','',['type'=>'search','placeholder'=>' ','style'=>'width: 415px']) }}
 
-<div style="margin-top: 20px;"></div>
+<div style="margin-top: 5px;"></div>
 
 <div class="form-inline">
   <span>Date Search</span>
     {{ Form::checkbox('dateCheck', 'true', false, ['id'=> 'date_check']) }}
     {{ Form::date('fromDate', $fromDate, ['class' => 'form-control']) }}
     {{ Form::date('toDate', $toDate, ['class' => 'form-control']) }}
+    {{ Form::submit('Search',['class'=>'btn btn-info btn-sm ']) }}
+  {{ Form::close() }}
 </div>
   <div style="margin-top: 20px;"></div>
   {{ link_to_route('posts.create','New Posts',[$post->id],['class'=>'btn btn-default btn-sm']) }}
-  {{ Form::submit('Search',['class'=>'btn btn-info btn-sm ']) }}
-  {{ Form::close() }}
+
 </div>
   @endsection
 
