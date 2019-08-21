@@ -26,9 +26,7 @@ h1 {
   }
 
   a {
-
     color:#c0c0c0;
-
     }
     body {background:url(https://ferret.akamaized.net/images/58b66600fafbd8666a0001d1/original.jpg?1488348671) no-repeat center center fixed; background-size:cover;}
 
@@ -105,4 +103,28 @@ h1 {
 
       }
 
-      box-shadow: 10px 10px 10px rgba(10,0,0,0.5)
+      .btn1 {
+        background-color: #fff;
+        border-color: #c0c0c0;
+        color: #c0c0c0;
+      }
+      .btn1:hover {
+        background-color: #fff;
+        color: #4CADEF;
+      }
+
+
+
+
+
+      .btn2 {
+        background-color: #fff;
+        border-color: #c0c0c0;
+        color: #c0c0c0;
+      }
+      .btn2:hover {
+        background-color: #fff;
+        border: 1px solid #c0c0c0;
+        color: #F04E48;
+
+      }

@@ -134,7 +134,8 @@ class PostsController extends Controller
             $comment = new Comment();
             $comment::where('post_id',$post->id)->delete();
             return redirect()->route('posts.index')->with('message','記事の削除が完了しました。');
-    }
+        }
+
 
     public function comment(Request $request)
     {
