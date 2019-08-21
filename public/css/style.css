@@ -31,3 +31,78 @@ h1 {
 
     }
     body {background:url(https://ferret.akamaized.net/images/58b66600fafbd8666a0001d1/original.jpg?1488348671) no-repeat center center fixed; background-size:cover;}
+
+    .pager .paginate {
+        text-align: center;
+      }
+
+      .pager .paginate li {
+        display: inline;
+        margin: 0 10px;
+        padding: 0;
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        text-align: center;
+        position: relative;
+        border-radius: 10px;
+      }
+
+
+      .pager .paginate li a{
+        vertical-align: middle;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        display:table;
+        text-decoration: none;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all  0.3s ease;
+      }
+
+      .pager .paginate li a span{
+        display:table-cell;
+        vertical-align:middle;
+      }
+
+      .pager .paginate li a:hover,
+      .pager .paginate li a.active{
+        color: #fff;
+        background: #c0c0c0;
+      }
+
+      @media only screen and (max-width: 767px){
+        .pager .paginate li{
+          display: none;
+        }
+
+        .pager .paginate li.pre,
+        .pager .paginate li.next{
+          display: inline-block;
+          width: 50%;
+          height: 50px;
+          text-align: center;
+        }
+
+        .pager .paginate li.pre a,
+        .pager .paginate li.next a{
+          width: 100%;
+          text-align: center;
+        }
+
+        .pager .paginate li.pre span::after{
+          content: "　前の10件へ";
+        }
+
+        .pager .paginate li.next span::before{
+          content: "次の10件へ　";
+        }
+
+      }
+
+      box-shadow: 10px 10px 10px rgba(10,0,0,0.5)

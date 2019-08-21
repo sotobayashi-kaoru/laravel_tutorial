@@ -60,6 +60,7 @@
 @section('footer')
 <div class="container">
   <div class="text-center">
+  <div class="pager">
     <div class="paginate">
       {{ $posts->links() }}
     </div>
@@ -67,7 +68,6 @@
  </div>
 
 @endsection
-
 
 @if(Session::has('message'))
 <div class="alert alert-success">
