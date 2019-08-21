@@ -1,8 +1,10 @@
-<div class="container">
 
 @extends('layouts.app')
+
 @section('title','New Posts')
+
 @section('content')
+<div class="container">
 <h1>New Posts</h1>
 {{ Form::open(['route'=>'posts.store']) }}
 {{ csrf_field() }}
@@ -16,13 +18,10 @@
 </p>
 
 {{ Form::submit('New Post',['class'=>'btn btn-info btn-sm']) }}
-{{ Form::close() }}
-
-<div style="margin-top: 20px;"></div>
-
 {{ link_to_route('posts.index','Home',[$post->id],['class'=>'btn btn-default btn-sm']) }}
-
+{{ Form::close() }}
 </div>
+<div style="margin-bottom: 20px;"></div>
 
 @endsection
 @if($errors->has('title'))

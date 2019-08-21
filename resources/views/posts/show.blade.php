@@ -1,8 +1,9 @@
-<div class="container">
-
 @extends('layouts.app')
+
 @section('title','記事詳細')
+
 @section('content')
+<div class="container">
 @if(Session::has('message'))
 <div class="alert alert-success">
 {{ session('message') }}
@@ -32,11 +33,11 @@
             </div>
             <div class="form-group">
                 {{ Form::submit('Send',['class'=>'btn btn-info btn-sm']) }}
+                {{ link_to_route('posts.index','Home',[$post->id],['class'=>'btn btn-default btn-sm']) }}
+                {{ Form::close() }}
             </div>
+
             <input type="hidden" name="post_id" value="{{$post->id}}">
-{{ Form::close() }}
-
 </div>
-{{ link_to_route('posts.index','Home',[$post->id],['class'=>'btn btn-default btn-sm']) }}
-
+<div style="margin-bottom: 20px;"></div>
 @endsection

@@ -1,3 +1,7 @@
+table {
+    width: 150px;
+}
+
 td, th {
     padding: 10px 5px;
 }

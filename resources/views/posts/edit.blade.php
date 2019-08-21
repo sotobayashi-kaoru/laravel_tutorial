@@ -1,9 +1,9 @@
-<div class="container">
-
 @extends('layouts.app')
-@section('title','Edit')
-@section('content')
 
+@section('title','Edit')
+
+@section('content')
+<div class="container">
 <h1>Edit</h1>
 
 {{ Form::open(['route'=>['posts.update',$post->id],'method'=>'put']) }}
@@ -17,11 +17,8 @@
     {{ Form::textarea('content',$post->content) }}
 </p>
 {{ Form::submit('Update',['class'=>'btn btn-info btn-sm']) }}
-{{ Form::close() }}
-
-<div style="margin-top: 10px;"></div>
-
 {{ link_to_route('posts.index','Home',[$post->id],['class'=>'btn btn-default btn-sm']) }}
+{{ Form::close() }}
 </div>
 
 @endsection
@@ -32,3 +29,4 @@
 @if($errors->has('content'))
 <span class="text-danger">{{ $errors->first('content') }}</span>
 @endif
+<div style="margin-bottom: 20px;"></div>

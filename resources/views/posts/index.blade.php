@@ -24,6 +24,7 @@
     <td>
       {{ Form::open(['route'=>['posts.destroy',$post->id],'onSubmit'=>'return delPostConfirm();','method'=>'delete']) }}
       {{ Form::submit('Delete',['class'=>'btn btn-danger btn-sm']) }}
+      <!-- <a href="#" class="btn-flat-border">BUTTON</a> -->
       {{ Form::close() }}
     </td>
 </tr>
