@@ -8,9 +8,9 @@
 <table border="2"　bordercolor="#dcdcdc">
 <tr>
     <tr bgcolor="#fff">
-    <th class="text-center titleTxt">Title</th>
-    <th class="text-center titleTxt">Posts</th>
-    <th class="text-center titleTxt">Date</th>
+    <th class="text-center titleTxt1">Title</th>
+    <th class="text-center titleTxt2">Posts</th>
+    <th class="text-center titleTxt3">Date</th>
     <th></th>
     <th></th>
 </tr>

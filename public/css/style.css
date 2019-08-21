@@ -1,8 +1,13 @@
 td, th {
-    padding: 10px 5px;
+    padding: 10px 15px;
 }
+tr {
+    padding-left: 20px;
+    list-style-type: none;
+   }
+
 .titleTxt {
-    padding: 10px 5px;
+    padding: 10px ;
 }
 .testM {
     margin: auto 0;
@@ -10,7 +15,6 @@ td, th {
 h1 {
     padding: 0.25em 0.5em;
     color: #494949;
-    background: transparent;/*背景透明に*/
     border-left: solid 5px #7db4e6;
   }
 
@@ -20,13 +24,15 @@ h1 {
     background: #ffffff;
   }
 
-  table th{/*thに対して*/
+  table th{
     color: #c0c0c0;
     background: #ffffff;
   }
 
   a {
     color:#c0c0c0;
+    /* text-decoration:underline; */
+    border-color:#000000;
     }
     body {background:url(https://ferret.akamaized.net/images/58b66600fafbd8666a0001d1/original.jpg?1488348671) no-repeat center center fixed; background-size:cover;}
 
@@ -36,14 +42,14 @@ h1 {
 
       .pager .paginate li {
         display: inline;
-        margin: 0 10px;
+        margin: 0 12px;
         padding: 0;
         display: inline-block;
         width: 15px;
         height: 15px;
         text-align: center;
         position: relative;
-        border-radius: 10px;
+        border-radius: 8px;
       }
 
 
@@ -73,6 +79,23 @@ h1 {
         color: #fff;
         background: #c0c0c0;
       }
+      .pager .paginate li span:hover,
+      .pager .paginate li span.active{
+        color: #fff;
+        background: #c0c0c0;
+      }
+      .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+        color: #fff;
+        background: #c0c0c0;
+        border: 0;
+    }
+
+    .pagination>li>a, .pagination>li>span {
+        color: #c0c0c0;
+        background: #fff;
+        border: 1;
+    }
+
 
       @media only screen and (max-width: 767px){
         .pager .paginate li{
@@ -110,21 +133,18 @@ h1 {
       }
       .btn1:hover {
         background-color: #fff;
-        color: #4CADEF;
+        color: #76ACE1;
       }
-
-
-
-
 
       .btn2 {
         background-color: #fff;
         border-color: #c0c0c0;
         color: #c0c0c0;
+        text-decoration:underline;
+        text-decoration-color:#76ACE1;
       }
       .btn2:hover {
         background-color: #fff;
         border: 1px solid #c0c0c0;
         color: #F04E48;
-
       }

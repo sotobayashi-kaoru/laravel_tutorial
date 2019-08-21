@@ -22,10 +22,7 @@ class PostsController extends Controller
         $fromDate = $request->get('fromDate');
         $toDate = $request->get('toDate');
         $dateCheck = $request->get('dateCheck');
-
         $keywords = preg_split("/[\s+]/", str_replace('　', ' ', $keywords));
-
-
         $posts = Post::where(function ($query) use($keywords, $fromDate, $toDate, $dateCheck) {
             foreach($keywords as $word){
                 if($word){
@@ -41,7 +38,6 @@ class PostsController extends Controller
                 }
             }
         })->latest('created_at')->paginate(10);
-
 
             return view('posts.index', compact('posts','fromDate','toDate'));
     }
@@ -71,7 +67,6 @@ class PostsController extends Controller
         $request->session()->flash('message','記事の登録が完了しました。');
         return redirect()->route('posts.show',[$post->id]);
     }
-
 
     /**
      * Display the specified resource.
