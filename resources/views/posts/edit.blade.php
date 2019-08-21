@@ -8,14 +8,14 @@
 
 {{ Form::open(['route'=>['posts.update',$post->id],'method'=>'put']) }}
 {{ csrf_field() }}
-<p>
-    Title：<br>
+<p><u>
+    Title<br>
     {{ Form::text('title',$post->title) }}
-</p>
-<p>
-    Text：<br>
+</u></p>
+<p><u>
+    Text<br>
     {{ Form::textarea('content',$post->content) }}
-</p>
+</u></p>
 {{ Form::submit('Update',['class'=>'btn btn-info btn-sm']) }}
 {{ link_to_route('posts.index','Home',[$post->id],['class'=>'btn btn-default btn-sm']) }}
 {{ Form::close() }}

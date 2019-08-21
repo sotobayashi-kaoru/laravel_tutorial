@@ -5,7 +5,7 @@
 @section('content')
 <div style="margin-top: 50px;"></div>
 <div class="container">
-<table border="2"　bordercolor="#dcdcdc">
+<table border="1"　bordercolor="#dcdcdc">
 <tr>
     <tr bgcolor="#fff">
     <th class="text-center titleTxt1">Title</th>

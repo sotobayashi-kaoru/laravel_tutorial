@@ -52,7 +52,6 @@ h1 {
         border-radius: 8px;
       }
 
-
       .pager .paginate li a{
         vertical-align: middle;
         position: absolute;
@@ -95,7 +94,6 @@ h1 {
         background: #fff;
         border: 1;
     }
-
 
       @media only screen and (max-width: 767px){
         .pager .paginate li{

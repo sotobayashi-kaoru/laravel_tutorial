@@ -22,19 +22,21 @@
             </div>
 @endforeach
 
+
 {{ Form::open( ['url' => 'comment'] ) }}
             <div class="form-group">
-                {{Form::label('name')}}
+                {{ Form::label('name')}}
                 {{ Form::text('name', '' ,['class' => 'form-control', 'required']) }}
-            </div>
+
+</div>
             <div class="form-group">
-                {{Form::label('comment')}}
+                {{ Form::label('comment')}}
                 {{ Form::textarea('comment', '', ['class' => 'form-control', 'required']) }}
             </div>
             <div class="form-group">
                 {{ Form::submit('Send',['class'=>'btn btn-info btn-sm']) }}
                 {{ link_to_route('posts.index','Home',[$post->id],['class'=>'btn btn-default btn-sm']) }}
-                {{ Form::close() }}
+{{ Form::close() }}
             </div>
 
             <input type="hidden" name="post_id" value="{{$post->id}}">
